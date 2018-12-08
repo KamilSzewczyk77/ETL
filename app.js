@@ -1,9 +1,9 @@
 
 const preObject = document.getElementById('imdb');
-const ulList = document.getElementById('list');
+const ulList = document.getElementById('TOP250');
 
-const dbRefObject = firebase.datebase().ref().child('TOP250');
-const dbRefList = dbRefObject.child('list')
+const dbRefObject = firebase.datebase().ref().child('1');
+
 
 dbRefObject.on('value', snap => {
   preObject.innerText = JSON.stringify(snap.val(), null, 5);
