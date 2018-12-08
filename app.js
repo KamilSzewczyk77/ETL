@@ -1,13 +1,12 @@
-<script src="https://www.gstatic.com/firebasejs/5.7.0/firebase.js"></script>
-<script>
-  // Initialize Firebase
-  var config = {
-    apiKey: "AIzaSyBg0kSaoiku7sKgo0iQMg1aOS4h3x6iozQ",
-    authDomain: "hurt-danych-as-ks.firebaseapp.com",
-    databaseURL: "https://hurt-danych-as-ks.firebaseio.com",
-    projectId: "hurt-danych-as-ks",
-    storageBucket: "hurt-danych-as-ks.appspot.com",
-    messagingSenderId: "105336337375"
-  };
-  firebase.initializeApp(config);
-</script>
+
+const preObject = document.getElementById('imbd');
+const ulList = document.getElementById('list');
+
+const dbRefObject = firebase.datebase().ref().child('imbd');
+const dbRefList = dbRefObject.child('TOP250')
+
+dbRefObject.on('value', snap => {
+  preObject.innerText = JSON.stringify(snap.val(), null, 3);
+});
+
+dbRefList.on('child_added', snap => console.log(snap.val()));

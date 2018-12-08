@@ -17,22 +17,12 @@
 
 </head>
 <body>
-  <ul id="list">
-
+  123
+  13
+  <pre id="imdb"></pre>
+  <ul i ="list">
+12
   </ul>
- <script>
-   const preObject = document.getElementById('object');
-   const ulList = document.getElementById('list');
-
-   const dbRefObject = firebase.datebase().ref().child('imbd');
-   const dbRefList = dbRefObject.child('TOP250')
-
-   dbRefObject.on('value', snap => {
-     preObject.innerText = JSON.stringify(snap.val(), null);
-   });
-
-   dbRefList.on('child_added', snap => console.log(snap.val()));
- </script>
 
 </body>
 </html>
