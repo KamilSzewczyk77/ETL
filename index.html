@@ -31,7 +31,7 @@
   </ul>
 <script>document.getElementById("lit").innerHTML = "New text!";</script>
 <script>
-function (){
+(function (){
   var config = {
      apiKey: "AIzaSyBg0kSaoiku7sKgo0iQMg1aOS4h3x6iozQ",
      authDomain: "hurt-danych-as-ks.firebaseapp.com",
@@ -43,17 +43,15 @@ function (){
    firebase.initializeApp(config);
 
  const preObject = document.getElementById('object');
-const ulList = document.getElementById('list');
+
 
 const dbRefObject = firebase.datebase().ref().child('imdb');
-const dbRefList = dbRefObject.child('TOP250')
 
-dbRefObject.on('value', snap => {
-  preObject.innerText = JSON.stringify(snap.val(), null, 6);
-});
 
-dbRefList.on('child_added', snap => console.log(snap.val()));
-};
+dbRefObject.on('value', snap => console.log(snap.val());
+
+
+}());
 </script>
 
 </body>
