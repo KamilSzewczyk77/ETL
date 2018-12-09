@@ -17,12 +17,31 @@
 
 </head>
 <body>
+  <pre id ="object">
+
+  </pre>
   123
   13
 
+  <ul id ="lit">
+11244
+  </ul>
   <ul id ="list">
 11244
   </ul>
-<script>document.getElementById("list").innerHTML = "New text!";</script>
+<script>document.getElementById("lit").innerHTML = "New text!";
+const preObject = document.getElementById('object');
+const ulList = document.getElementById('list');
+
+const dbRefObject = firebase.datebase().ref().child('imbd');
+const dbRefList = dbRefObject.child('TOP250')
+
+dbRefObject.on('value', snap => {
+  preObject.innerText = JSON.stringify(snap.val(), null, 6);
+});
+
+dbRefList.on('child_added', snap => console.log(snap.val()));
+</script>
+
 </body>
 </html>
