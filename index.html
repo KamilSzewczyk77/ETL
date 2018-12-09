@@ -2,26 +2,9 @@
 <head>
  <title>Firebase Realtime Database Web</title>
  <script src="https://www.gstatic.com/firebasejs/5.7.0/firebase.js"></script>
-
-
-</head>
-<body>
-  <pre id ="imdb">
-
-  </pre>
-  123
-  13
-
-  <ul id ="lit">
-11244
-  </ul>
-  <ul id ="list">
-11244
-  </ul>
-<script>document.getElementById("lit").innerHTML = "New text!";</script>
-<script>
-(function (){
-  var config = {
+ <script>
+   // Initialize Firebase
+   var config = {
      apiKey: "AIzaSyBg0kSaoiku7sKgo0iQMg1aOS4h3x6iozQ",
      authDomain: "hurt-danych-as-ks.firebaseapp.com",
      databaseURL: "https://hurt-danych-as-ks.firebaseio.com",
@@ -30,18 +13,16 @@
      messagingSenderId: "105336337375"
    };
    firebase.initializeApp(config);
+ </script>
 
- const preObject = document.getElementById('imdb');
+</head>
+<body>
+  123
+  13
 
-
-const dbRefObject = firebase.database().ref().child('imdb');
-
-
-dbRefObject.on('value', snap => console.log(snap.val()));
-
-
-}());
-</script>
-
+  <ul id ="list">
+11244
+  </ul>
+<script src="app.js"></script>
 </body>
 </html>
