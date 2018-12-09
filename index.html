@@ -6,7 +6,7 @@
 
 </head>
 <body>
-  <pre id ="object">
+  <pre id ="imdb">
 
   </pre>
   123
@@ -31,10 +31,10 @@
    };
    firebase.initializeApp(config);
 
- const preObject = document.getElementById('object');
+ const preObject = document.getElementById('imdb');
 
 
-const dbRefObject = firebase.datebase().ref().child('imdb');
+const dbRefObject = firebase.datebase().ref('imdb').child('TOP250');
 
 
 dbRefObject.on('value', snap => console.log(snap.val()));
