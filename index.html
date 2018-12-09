@@ -34,7 +34,7 @@
  const preObject = document.getElementById('imdb');
 
 
-const dbRefObject = firebase.datebase().ref('imdb').child('TOP250');
+const dbRefObject = firebase.datebase().ref().child('imdb');
 
 
 dbRefObject.on('value', snap => console.log(snap.val()));
