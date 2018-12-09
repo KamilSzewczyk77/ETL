@@ -29,11 +29,11 @@
   <ul id ="list">
 11244
   </ul>
-<script>document.getElementById("lit").innerHTML = "New text!";
-const preObject = document.getElementById('object');
+<script>document.getElementById("lit").innerHTML = "New text!";</script>
+<script> const preObject = document.getElementById('object');
 const ulList = document.getElementById('list');
 
-const dbRefObject = firebase.datebase().ref().child('imbd');
+const dbRefObject = firebase.datebase().ref().child('imdb');
 const dbRefList = dbRefObject.child('TOP250')
 
 dbRefObject.on('value', snap => {
