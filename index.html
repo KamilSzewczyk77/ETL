@@ -30,7 +30,19 @@
 11244
   </ul>
 <script>document.getElementById("lit").innerHTML = "New text!";</script>
-<script> const preObject = document.getElementById('object');
+<script>
+function (){
+  var config = {
+     apiKey: "AIzaSyBg0kSaoiku7sKgo0iQMg1aOS4h3x6iozQ",
+     authDomain: "hurt-danych-as-ks.firebaseapp.com",
+     databaseURL: "https://hurt-danych-as-ks.firebaseio.com",
+     projectId: "hurt-danych-as-ks",
+     storageBucket: "hurt-danych-as-ks.appspot.com",
+     messagingSenderId: "105336337375"
+   };
+   firebase.initializeApp(config);
+
+ const preObject = document.getElementById('object');
 const ulList = document.getElementById('list');
 
 const dbRefObject = firebase.datebase().ref().child('imdb');
@@ -41,6 +53,7 @@ dbRefObject.on('value', snap => {
 });
 
 dbRefList.on('child_added', snap => console.log(snap.val()));
+};
 </script>
 
 </body>
