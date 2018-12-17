@@ -1,0 +1,110 @@
+<html>
+<head>
+    <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css"
+          integrity="sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w" crossorigin="anonymous">
+    <link rel="stylesheet" href="design.css"  type="text/css"/>
+    <style>
+        .movie__cover {
+            height: 10em;
+        }
+        h1 {
+        color:#cccccc;
+        box-sizing: border-box;
+        height: 50px;
+        width: 100%;
+        background-color:#262626;
+        position: relative;
+        }
+    </style>
+
+    <style>
+        * {
+  box-sizing: border-box;
+}
+.pure-table{
+    background-color: gray;
+}
+body {
+  margin: 0px;
+  font-family: 'segoe ui';
+
+}
+
+.nav {
+  height: 50px;
+  width: 100%;
+  background-color: #333333;
+  position: relative;
+
+}
+
+.nav > .nav-header {
+  display: inline;
+
+}
+
+.nav > .nav-header > .nav-title {
+
+  text-align: center;
+  font-size: 22px;
+  color: #fff;
+  padding: 10px 10px 10px 10px;
+
+    }
+}
+    </style>
+</head>
+<body>
+<div class=" xd">
+<h1>Uniwerystet Ekonomiczny w Krakowie - ETL<small>{{greetings}}</small></h1>
+</div>
+<div class="nav">
+  <div class="nav-header">
+    <div class="nav-title">
+    ★彡 THE WORLD OF MOVIES 彡★
+    </div>
+  </div>
+</div>
+
+<form method="POST" action="{{url_for('change_category')}}" class="pure-form pure-form-stacked">
+    <select name="movie_category">
+        {% for category in categories %}
+        <option value="{{category}}">{{category}}</option>
+        {% endfor %}
+    </select>
+    <button class="pure-button pure-button-primary" type="submit">ETL</button>
+</form>
+
+<table class="pure-table">
+    <thead>
+    <tr>
+        <th>#</th>
+        <th>Title</th>
+        <th>Rating</th>
+        <th>Actors</th>
+        <th>Director</th>
+        <th>Published</th>
+        <th>PG</th>
+        <th>Description</th>
+        <th>Cover</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    {% for movie in movies %}
+    <tr {% if loop.index % 2 == 0 %}class="pure-table-odd"{%endif%}>
+       <td>{{loop.index}}</td>
+        <td>{{movie.title}}</td>
+        <td>{{movie.rating}}</td>
+        <td>{{movie.actors}}</td>
+        <td>{{movie.director}}</td>
+        <td>{{movie.published}}</td>
+        <td>{{movie.pg}}</td>
+        <td>{{movie.description}}</td>
+        <td><img class="movie__cover" src="{{movie.cover_url}}"/></td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+</body>
+</html>
